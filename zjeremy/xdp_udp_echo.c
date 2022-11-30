@@ -148,7 +148,7 @@ int udp_server_rx_filter_main(struct xdp_md *ctx) {
             // do AF_XDP swap
             int index = ctx->rx_queue_index;
             if (bpf_map_lookup_elem(&xsks_map, &index)){
-                bpf_printk("sent to af_xdp!\n");
+                //bpf_printk("sent to af_xdp!\n");
                 return bpf_redirect_map(&xsks_map, index, 0);
             }
 
