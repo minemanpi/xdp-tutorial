@@ -25,13 +25,12 @@ int xdp_sock_prog(struct xdp_md *ctx)
     __u32 *pkt_count;
 
     pkt_count = bpf_map_lookup_elem(&xdp_stats_map, &index);
-    if (pkt_count) {
+/*if (pkt_count) {
 
-        /* We pass every other packet */
-        if ((*pkt_count)++ & 1)
-            return XDP_PASS;
-    }
-
+       if ((*pkt_count)++ & 1)
+        return XDP_PASS;
+   }
+*/
     /* A set entry here means that the correspnding queue_id
      * has an active AF_XDP socket bound to it. */
     if (bpf_map_lookup_elem(&xsks_map, &index))

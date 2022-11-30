@@ -143,6 +143,7 @@ int xdp_icmp_echo_func(struct xdp_md *ctx)
 	 *     icmphdr->checksum = ~(csum16_add(csum16_add(~icmphdr->checksum, ~m0), m1));
 	 */
 
+	bpf_printk("got and echoed packet!!!!!!!\n");
 	action = XDP_TX;
 
 out:
